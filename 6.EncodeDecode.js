@@ -19,8 +19,9 @@ class Solution {
    */
   decode(str) {
     let res = [];
-    let i = 0;
-    while (i < str.length) {
+    let i = 0,
+      j = 0;
+    while (j < str.length) {
       let j = i;
       while (str[j] !== "#") {
         j++;
