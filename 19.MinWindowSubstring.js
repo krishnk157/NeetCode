@@ -1,4 +1,4 @@
-// https://neetcode.io/problems/minimum-window-with-characters/question
+// https://neetcode.io/problems/minimum-windowCount-with-characters/question
 
 class Solution {
   /**
@@ -15,7 +15,7 @@ class Solution {
     }
     let have = 0;
     let need = Object.keys(countT).length;
-    let window = {};
+    let windowCount = {};
 
     let res = [-1, -1];
     let resLen = Infinity;
@@ -23,9 +23,9 @@ class Solution {
 
     for (let r = 0; r < s.length; r++) {
       let c = s[r];
-      window[c] = (window[c] || 0) + 1;
+      windowCount[c] = (windowCount[c] || 0) + 1;
 
-      if (countT[c] && window[c] === countT[c]) {
+      if (countT[c] && windowCount[c] === countT[c]) {
         have++;
       }
       while (have === need) {
@@ -33,8 +33,8 @@ class Solution {
           resLen = r - l + 1;
           res = [l, r];
         }
-        window[s[l]]--;
-        if (countT[s[l]] && window[s[l]] < countT[s[l]]) {
+        windowCount[s[l]]--;
+        if (countT[s[l]] && windowCount[s[l]] < countT[s[l]]) {
           have--;
         }
         l++;

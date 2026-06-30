@@ -22,7 +22,7 @@ class Solution {
     let i = 0,
       j = 0;
     while (j < str.length) {
-      let j = i;
+      j = i;
       while (str[j] !== "#") {
         j++;
       }
