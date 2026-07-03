@@ -10,11 +10,9 @@ class Solution {
 
     // get the frequency of every element
     const freqMap = {};
+
     for (let n of nums) {
-      if (!freqMap[n]) {
-        freqMap[n] = [0];
-      }
-      ++freqMap[n];
+      freqMap[n] = (freqMap[n] || 0) + 1;
     }
 
     //Add elements to min pq
