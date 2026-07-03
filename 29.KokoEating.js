@@ -7,7 +7,7 @@ class Solution {
    * @return {number}
    */
   minEatingSpeed(piles, h) {
-    let l = 0;
+    let l = 1;
     let r = Math.max(...piles);
 
     let timeToEat = (k) => {

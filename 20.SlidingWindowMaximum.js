@@ -6,24 +6,22 @@ class Solution {
    * @param {number} k
    * @return {number[]}
    */
-  maxSlidingWindow(arr, k) {
-    let res = [];
-    let q = [];
-
-    let i = 0,
-      j = 0;
-    while (j < arr.length) {
-      while (q.length && arr[j] > q[q.length - 1]) {
-        q.pop();
+  maxSlidingWindow(nums, k) {
+    const deq = [];
+    const res = [];
+    for (let j = 0; j < nums.length; j++) {
+      while (deq.length && nums[j] >= nums[deq[deq.length - 1]]) {
+        deq.pop();
       }
-      q.push(arr[j]);
+      deq.push(j);
+      // remove indices outside window
+      if (deq[0] <= j - k) {
+        deq.shift();
+      }
 
       if (j >= k - 1) {
-        res.push(q[0]);
-        if (arr[i] == q[0]) q.shift(); //shrink window from left
-        ++i;
+        res.push(nums[deq[0]]);
       }
-      ++j;
     }
     return res;
   }

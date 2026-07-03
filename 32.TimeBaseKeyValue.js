@@ -15,7 +15,7 @@ class TimeMap {
   get(key, timestamp) {
     const arr = this.keyStore.get(key) || [];
 
-    let res = [];
+    let res = "";
     let left = 0;
     let right = arr.length - 1;
 
